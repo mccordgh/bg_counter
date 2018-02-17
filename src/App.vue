@@ -10,8 +10,7 @@
 
   div.navbar {
     background-color: lavender;
-    /*height: 2.5rem;*/
-    padding: 0.5rem;
+    padding: 1rem;
     text-align: center;
   }
 
@@ -45,7 +44,14 @@
       </ul>
     </div>
     <div class="content">
-      <player-stats v-for="count in playerCount" :starting-count="statStartingCount"></player-stats>
+      <template v-for="num in playerCount">
+        <player-stats
+          v-bind:key="num"
+          :starting-count="statStartingCount"
+          :player-number="num"
+        >
+        </player-stats>
+      </template>
     </div>
   </div>
 </template>

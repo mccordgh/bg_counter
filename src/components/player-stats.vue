@@ -15,10 +15,13 @@
   li.divider {
     border-bottom: 2px solid grey;
     height: 2px;
+    margin-top: 1.5rem;
     width: 80%;
   }
 
   button.operator__button {
+    background-color: lavender;
+    border: none;
     font-size: 3.2rem;
     font-weight: bolder;
     height: 2rem;
@@ -36,7 +39,7 @@
     <div class="navbar">
       <ul>
         <li>
-          <input class="label" type="text" placeholder="Player Name Here." />
+          <input class="label" type="text" :placeholder="'Player #' + playerNumber + '\'s Name Here.'" />
         </li>
         <li class="divider"></li>
         <li>
@@ -63,6 +66,10 @@
       startingCount: {
         type: Number,
         required: false,
+      },
+      playerNumber: {
+        type: Number,
+        required: true,
       }
     },
 
