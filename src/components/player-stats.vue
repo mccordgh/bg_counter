@@ -24,8 +24,8 @@
     border: none;
     font-size: 3.2rem;
     font-weight: bolder;
-    height: 2rem;
-    width: 4rem;
+    height: 5rem;
+    width: 5rem;
   }
 
   span.stat__span {
