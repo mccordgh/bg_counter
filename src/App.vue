@@ -1,28 +1,87 @@
+<style>
+  html, body {
+    background-color: lavender;
+    font-size: 10px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  div.navbar {
+    background-color: lavender;
+    /*height: 2.5rem;*/
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  div.navbar ul {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  div.navbar ul li {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bolder;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  div.navbar ul li:hover {
+    color: darkgrey;
+  }
+</style>
+
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="navbar">
+      <ul>
+        <li @click="addPlayer">+ Add Player +</li>
+      </ul>
+    </div>
+    <div class="content">
+      <player-stats v-for="count in playerCount" :starting-count="statStartingCount"></player-stats>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import PlayerStats from '../src/components/player-stats.vue';
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  export default {
+    name: 'app',
+
+    data() {
+      return {
+        playerCount: 0,
+        statStartingCount: 0,
+        startingCountCheck: false,
+      };
+    },
+
+    methods: {
+      addPlayer() {
+        if (!this.startingCountCheck) {
+          this.statStartingCount = parseInt(window.prompt('Stat starting number?', '0'), 10);
+
+          if (isNaN(this.statStartingCount)) {
+            this.statStartingCount = 0;
+          }
+
+          this.startingCountCheck = true;
+        }
+
+        this.playerCount += 1;
+      },
+    },
+
+    components: { PlayerStats },
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
