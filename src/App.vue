@@ -2,14 +2,15 @@
   html, body {
     background-color: lavender;
     font-size: 10px;
-    height: 100%;
-    width: 100%;
-    padding: 0;
+    /*height: 100%;*/
+    /*width: 100%;*/
+    padding: 0.5rem;
     margin: 0;
   }
 
   div.navbar {
     background-color: lavender;
+    overflow: hidden;
     padding: 1rem;
     text-align: center;
   }

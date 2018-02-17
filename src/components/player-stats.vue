@@ -1,6 +1,6 @@
 <style scoped>
   div.content__card {
-    border: solid 2px grey;
+    border: solid 0.3rem grey;
     margin: 0.5rem;
   }
 
